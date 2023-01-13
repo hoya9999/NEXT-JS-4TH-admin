@@ -1,5 +1,4 @@
 import react from "react";
-import BaseLayout from "../components/containers/BaseLayout";
 
 function Box({ children }) {
   console.log(children);
@@ -14,8 +13,13 @@ const fruits = [
 
 export default function App() {
   return (
-    <BaseLayout>
-        Index Page
-    </BaseLayout>
+    <Box>
+      <div name="banana">banana</div>
+      {fruits.map(fruit => (
+        <div key={`${fruit.id}_${fruit.name}`} name={fruit.name}>
+          {fruit.name}
+        </div>
+      ))}
+    </Box>
   );
 }
